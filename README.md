@@ -13,16 +13,25 @@ ng new [project-name] --commit=false --routing=true --style=scss
 #### 2. Adding folder structure to `src`
     .
     ├── app
-    
-    └── src                 # Source files
-         ├── assets
-         │   ├── images
-         │   └── ...
-         ├── scripts
-         │   └── app.js
-         ├── styles
-         │   └── app.scss
-         └── index.html
+    │    ├── core
+    │    │    ├── guards
+    │    │    ├── interceptors
+    │    │    └── services
+    │    ├── data
+    │    │    ├── models
+    │    │    └── services
+    │    ├── layouts
+    │    ├── modules
+    │    │    └── [module name]
+    │    │         ├── pages
+    │    │         │    └── [page name]-page 
+    │    │         ├── [module name]-routing.module.ts
+    │    │         └── [module name].module.ts 
+    │    └── shared
+    │         ├── components
+    │         └── directives
+    ├── styles
+    └── index.html
 
 #### 3. Set `stylePreprocessorOptions` in `angular.json`
 
