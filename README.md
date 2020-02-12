@@ -1,6 +1,6 @@
 # angular-starter-kit
 
-> Starter Kit based on [Angular CLI](https://github.com/angular/angular-cli) (version 8.3.6) with custom folder structure includes some basic code like authentication module
+> Starter Kit based on [Angular CLI](https://github.com/angular/angular-cli) (version 9.0.1) with custom folder structure includes some basic code like auth and form module
 
 ## Development server
 
@@ -32,15 +32,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     ├── dist                                                    # Compiled files
     └── src                                                     # Source files
          ├── app
-         │    ├── core
-         │    │    ├── [+] guards
-         │    │    ├── [+] interceptors
-         │    │    └── [+] services
          │    ├── data
          │    │    ├── [+] modelss
          │    │    └── [+] services
          │    ├── layouts
          │    │    └── [layout name]
+         │    ├── libs
+         │    │    └── [lib name]
          │    ├── modules
          │    │    └── [module name]
          │    │         ├── [+] components

@@ -1,0 +1,13 @@
+<div class="form-field" [class.focused]="focused" [class.filled]="filled" [class.error]="error" [class.disabled]="disabled">
+  <div class="form-check">
+    <input class="form-check-input" [id]="id" type="checkbox" [checked]="value" (change)="changeHandler($event.target.checked)" (focus)="focusHandler()" (blur)="blurHandler()">
+    <div class="form-check-mark">
+      <i class="icon icon-check-2"></i>
+    </div>
+    <label class="form-check-label" [for]="id">
+      <ng-content></ng-content>
+    </label>
+  </div>
+  <ng-content select=".form-hints"></ng-content>
+  <ng-content select=".form-errors"></ng-content>
+</div>

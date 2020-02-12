@@ -1,0 +1,14 @@
+<div class="form-field" [class.focused]="focused || isShowOptionList" [class.filled]="filled" [class.error]="error" [class.disabled]="disabled" appDeactivate (deactivate)="closeOptionList()">
+  <ng-content select=".form-label"></ng-content>
+  <div class="form-control">
+    <button #button class="form-control-button" type="button" (focus)="focusHandler()" (blur)="blurHandler()" (click)="showOptionsToggle()">{{ valueLabel || ((focused || isShowOptionList) ? placeholder : '') }}</button>
+    <div class="form-control-icon">
+      <i class="icon icon-small-triangle-down"></i>
+    </div>
+    <div class="form-options" *ngIf="isShowOptionList">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <ng-content select=".form-hints"></ng-content>
+  <ng-content select=".form-errors"></ng-content>
+</div>

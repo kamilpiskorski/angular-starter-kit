@@ -1,0 +1,11 @@
+<div class="form-field" [class.focused]="focused || isShowOptionList" [class.filled]="filled" [class.error]="error" [class.disabled]="disabled" appDeactivate (deactivate)="closeOptionList()">
+  <ng-content select=".form-label"></ng-content>
+  <div class="form-control">
+    <input class="form-control-input" [id]="id" name="query" type="text" spellcheck="false" autocomplete="off" [(ngModel)]="valueLabel" (ngModelChange)="searchHandler($event)" [ngModelOptions]="{ standalone: true }" (focus)="focusHandler()" (blur)="blurHandler()" (keydown.enter)="$event.preventDefault()">
+    <div class="form-options" *ngIf="isShowOptionList">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <ng-content select=".form-hints"></ng-content>
+  <ng-content select=".form-errors"></ng-content>
+</div>

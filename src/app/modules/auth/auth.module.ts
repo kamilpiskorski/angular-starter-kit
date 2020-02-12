@@ -1,9 +1,9 @@
 // Angular
 import { NgModule } from '@angular/core';
 // Pages
-import { LoginPageComponent } from './pages/login-page';
-import { PasswordPageComponent } from './pages/password-page';
-import { RegisterPageComponent } from './pages/register-page';
+import { AuthLoginPageComponent } from './pages/auth-login-page';
+import { AuthPasswordPageComponent } from './pages/auth-password-page';
+import { AuthRegisterPageComponent } from './pages/auth-register-page';
 // Routing
 import { AuthRoutingModule } from './auth-routing.module';
 
@@ -12,9 +12,9 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthRoutingModule
   ],
   declarations: [
-    LoginPageComponent,
-    PasswordPageComponent,
-    RegisterPageComponent
+    AuthLoginPageComponent,
+    AuthPasswordPageComponent,
+    AuthRegisterPageComponent
   ]
 })
 export class AuthModule {

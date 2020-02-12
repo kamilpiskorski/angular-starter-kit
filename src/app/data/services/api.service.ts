@@ -12,15 +12,19 @@ export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
 
-  get<T>(endpoint: string, params: any = {}) {
-    return this.httpClient.get<T>(`${environment.apiUrl}/${endpoint}`, {params});
+  public get<T>(endpoint: string, params: any = {}) {
+    return this.httpClient.get<T>(`${environment.apiUrl}/${endpoint}`, { params });
   }
 
-  post<T>(endpoint: string, body: any = {}) {
+  public post<T>(endpoint: string, body: any = {}) {
     return this.httpClient.post<T>(`${environment.apiUrl}/${endpoint}`, body);
   }
 
-  delete<T>(endpoint: string, params: any = {}) {
-    return this.httpClient.delete<T>(`${environment.apiUrl}/${endpoint}`, {params});
+  public delete<T>(endpoint: string, params: any = {}) {
+    return this.httpClient.delete<T>(`${environment.apiUrl}/${endpoint}`, { params });
+  }
+
+  public request<T>(method: string, endpoint: string, options: any = {}) {
+    return this.httpClient.request<T>(method, `${environment.apiUrl}/${endpoint}`, options);
   }
 }

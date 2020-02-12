@@ -1,0 +1,7 @@
+<div class="form-check">
+  <input class="form-check-input" [id]="id" [name]="name" type="radio" [checked]="checked" (change)="changeHandler()" (focus)="focusHandler()" (blur)="blurHandler()">
+  <div class="form-check-mark"></div>
+  <label class="form-check-label" [for]="id">
+    <ng-content></ng-content>
+  </label>
+</div>
