@@ -22,4 +22,9 @@ export class DeactivateDirective {
       this.deactivate.emit();
     }
   }
+
+  @HostListener('keydown.escape')
+  public keyboardHandler() {
+    this.deactivate.emit();
+  }
 }
