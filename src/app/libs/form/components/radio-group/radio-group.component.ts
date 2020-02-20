@@ -2,17 +2,23 @@
 import { Component, Input } from '@angular/core';
 import { NgControl } from '@angular/forms';
 // Models
-import { FORM_CONTROL_COMPONENT, FormControlComponentType } from '../../models';
+import { FORM_CONTROL_COMPONENT, FORM_FIELD_COMPONENT, FormControlComponentType } from '../../models';
 
 let radioGroupId = 0;
 
 @Component({
   selector: 'app-radio-group',
   templateUrl: './radio-group.component.html',
-  providers: [{
-    provide: FORM_CONTROL_COMPONENT,
-    useExisting: RadioGroupComponent
-  }]
+  providers: [
+    {
+      provide: FORM_FIELD_COMPONENT,
+      useExisting: RadioGroupComponent
+    },
+    {
+      provide: FORM_CONTROL_COMPONENT,
+      useExisting: RadioGroupComponent
+    }
+  ]
 })
 export class RadioGroupComponent implements FormControlComponentType {
 

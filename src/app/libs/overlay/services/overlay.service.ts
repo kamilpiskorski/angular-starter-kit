@@ -16,9 +16,11 @@ export class OverlayService {
   }
 
   public create<T>(component: Type<T>) {
-    const overlay = new Overlay();
+    const overlay = new Overlay<T>();
     const injector = Injector.create({ providers: [{ provide: Overlay, useValue: overlay, deps: [] }], parent: this.injector });
     const componentRef = this.componentFactoryResolver.resolveComponentFactory<T>(component).create(injector);
+
+    overlay.instance = componentRef.instance;
 
     overlay.onPresent.pipe(
       first()

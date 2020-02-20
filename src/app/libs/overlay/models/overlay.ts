@@ -1,7 +1,9 @@
 // External
 import { Observable, Subject } from 'rxjs';
 
-export class Overlay {
+export class Overlay<T> {
+
+  public instance: T;
 
   public onPresent: Observable<void>;
   public onDismiss: Observable<void>;
