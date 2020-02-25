@@ -1,6 +1,6 @@
 # angular-starter-kit
 
-> Starter Kit based on [Angular CLI](https://github.com/angular/angular-cli) (version 9.0.1) with custom folder structure includes some basic code like auth and form module
+> Starter Kit based on [Angular CLI](https://github.com/angular/angular-cli) (version 9.0.3) with custom folder structure includes some basic code like auth and form module
 
 ## Development server
 
