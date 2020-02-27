@@ -38,18 +38,14 @@ export class DisplayDirective implements OnInit, OnDestroy {
       const query = this.query === 'mobile' ? `(max-width: ${this.desktopScreenWidth - 1}px)` : `(min-width: ${this.desktopScreenWidth}px)`;
 
       this.matchMedia = window.matchMedia(query);
-
-      if (typeof this.matchMedia.addEventListener === 'function') {
-        this.matchMedia.addEventListener('change', this.matchMediaListener);
-      }
-
+      this.matchMedia.addListener(this.matchMediaListener);
       this.matchMediaListener();
     }
   }
 
   ngOnDestroy() {
-    if (!!this.matchMedia && typeof this.matchMedia.removeEventListener === 'function') {
-      this.matchMedia.removeEventListener('change', this.matchMediaListener);
+    if (!!this.matchMedia) {
+      this.matchMedia.removeListener(this.matchMediaListener);
     }
   }
 }
