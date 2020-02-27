@@ -1,5 +1,5 @@
 // Angular
-import { Directive, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Inject, Input, NgZone, OnDestroy, OnInit, PLATFORM_ID, TemplateRef, ViewContainerRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
@@ -18,18 +18,23 @@ export class DisplayDirective implements OnInit, OnDestroy {
   private matchMedia: MediaQueryList;
   private readonly matchMediaListener: () => void;
 
-  constructor(@Inject(PLATFORM_ID) private platformId, private templateRef: TemplateRef<any>, private viewContainer: ViewContainerRef) {
+  constructor(private zone: NgZone,
+              @Inject(PLATFORM_ID) private platformId: string,
+              private templateRef: TemplateRef<DisplayDirective>,
+              private viewContainer: ViewContainerRef) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.desktopScreenWidth = 960;
 
     this.matchMediaListener = () => {
-      if (this.matchMedia.matches && !this.hasView) {
-        this.viewContainer.createEmbeddedView(this.templateRef);
-        this.hasView = true;
-      } else if (!this.matchMedia.matches && this.hasView) {
-        this.viewContainer.clear();
-        this.hasView = false;
-      }
+      this.zone.run(() => {
+        if (this.matchMedia.matches && !this.hasView) {
+          this.viewContainer.createEmbeddedView(this.templateRef);
+          this.hasView = true;
+        } else if (!this.matchMedia.matches && this.hasView) {
+          this.viewContainer.clear();
+          this.hasView = false;
+        }
+      });
     };
   }
 

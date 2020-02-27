@@ -17,4 +17,14 @@ export class FormHelpers {
       }
     });
   }
+
+  public static setValidationError(formGroup: FormGroup, errors: { [key: string]: string }) {
+    if (!errors || !Object.keys(errors).length) {
+      return;
+    }
+
+    Object.keys(errors).forEach(key => {
+      formGroup.get(key).setErrors({ invalid: true });
+    });
+  }
 }
