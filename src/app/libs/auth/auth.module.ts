@@ -1,6 +1,8 @@
 // Angular
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+// Directives
+import { IfLoggedDirective } from './directives/if-logged';
 // Guards
 import { AuthGuard } from './guards/auth.guard';
 // Interceptors
@@ -18,17 +20,16 @@ const AuthInterceptorProvider = {
   imports: [
     HttpClientModule
   ],
-  providers: [
-    AuthGuard,
-    AuthInterceptorProvider
+  declarations: [
+    IfLoggedDirective
+  ],
+  exports: [
+    IfLoggedDirective
   ]
 })
 export class AuthModule {
 
-  constructor(@Optional() @SkipSelf() parentModule: AuthModule) {
-    if (parentModule) {
-      throw new Error('AuthModule has already been loaded. Import AuthModule modules in the AppModule only.');
-    }
+  constructor() {
   }
 
   public static forRoot(authUrl: string): ModuleWithProviders {
@@ -36,6 +37,8 @@ export class AuthModule {
       ngModule: AuthModule,
       providers: [
         { provide: 'AUTH_URL', useValue: authUrl },
+        AuthGuard,
+        AuthInterceptorProvider,
         AuthService
       ]
     };

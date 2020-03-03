@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 // Directives
 import { DeactivateDirective } from './directives/deactivate';
-import { DisplayDirective } from './directives/display';
+import { IfMatchMediaDirective } from './directives/if-match-media';
+import { IfMobileDirective } from './directives/if-mobile';
 import { JumpDirective } from './directives/jump';
 import { SelectListDirective } from './directives/select-list';
 import { SelectOptionDirective } from './directives/select-option';
@@ -11,7 +12,8 @@ import { ToggleDirective } from './directives/toggle';
 @NgModule({
   declarations: [
     DeactivateDirective,
-    DisplayDirective,
+    IfMatchMediaDirective,
+    IfMobileDirective,
     JumpDirective,
     SelectListDirective,
     SelectOptionDirective,
@@ -19,7 +21,8 @@ import { ToggleDirective } from './directives/toggle';
   ],
   exports: [
     DeactivateDirective,
-    DisplayDirective,
+    IfMatchMediaDirective,
+    IfMobileDirective,
     JumpDirective,
     SelectListDirective,
     SelectOptionDirective,

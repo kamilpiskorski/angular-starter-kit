@@ -18,7 +18,9 @@ export class AuthService {
   private refreshingAuthToken: boolean;
   private readonly isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private platformId, private httpClient: HttpClient, @Inject('AUTH_URL') private authUrl: string) {
+  constructor(@Inject(PLATFORM_ID) private platformId: string,
+              private httpClient: HttpClient,
+              @Inject('AUTH_URL') private authUrl: string) {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
     const authToken = this.isBrowser ? window.localStorage.getItem('authToken') : null;
