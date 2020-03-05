@@ -24,8 +24,6 @@ export class DeactivateDirective {
   }
 
   @HostListener('keydown.escape')
-  @HostListener('keydown.tab')
-  @HostListener('keydown.shift.tab')
   public keyboardHandler() {
     this.deactivate.emit();
   }

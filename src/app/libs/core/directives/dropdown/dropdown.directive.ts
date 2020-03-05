@@ -30,8 +30,6 @@ export class DropdownDirective {
   }
 
   @HostListener('keydown.escape')
-  @HostListener('keydown.tab')
-  @HostListener('keydown.shift.tab')
   public hideDropdown() {
     this.visible = false;
     this.visibleChange.emit(this.visible);
