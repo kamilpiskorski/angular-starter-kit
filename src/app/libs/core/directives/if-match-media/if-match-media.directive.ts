@@ -11,18 +11,18 @@ export class IfMatchMediaDirective extends MatchMedia {
   @Input('appIfMatchMedia')
   public mediaQuery: string;
 
-  constructor(private zone: NgZone,
-              @Inject(PLATFORM_ID) platformId: string,
-              private templateRef: TemplateRef<IfMatchMediaDirective>,
-              private viewContainer: ViewContainerRef) {
+  constructor(@Inject(PLATFORM_ID) platformId: string,
+              zone: NgZone,
+              templateRef: TemplateRef<IfMatchMediaDirective>,
+              viewContainer: ViewContainerRef) {
     super(platformId);
 
     this.matchMediaListener = () => {
-      this.zone.run(() => {
+      zone.run(() => {
         if (this.matchMedia.matches) {
-          this.viewContainer.createEmbeddedView(this.templateRef);
+          viewContainer.createEmbeddedView(templateRef);
         } else {
-          this.viewContainer.clear();
+          viewContainer.clear();
         }
       });
     };

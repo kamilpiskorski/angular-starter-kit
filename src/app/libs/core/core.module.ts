@@ -1,7 +1,7 @@
 // Angular
 import { NgModule } from '@angular/core';
 // Directives
-import { DeactivateDirective } from './directives/deactivate';
+import { DropdownDirective } from './directives/dropdown';
 import { IfMatchMediaDirective } from './directives/if-match-media';
 import { IfMobileDirective } from './directives/if-mobile';
 import { JumpDirective } from './directives/jump';
@@ -11,7 +11,7 @@ import { ToggleDirective } from './directives/toggle';
 
 @NgModule({
   declarations: [
-    DeactivateDirective,
+    DropdownDirective,
     IfMatchMediaDirective,
     IfMobileDirective,
     JumpDirective,
@@ -20,7 +20,7 @@ import { ToggleDirective } from './directives/toggle';
     ToggleDirective
   ],
   exports: [
-    DeactivateDirective,
+    DropdownDirective,
     IfMatchMediaDirective,
     IfMobileDirective,
     JumpDirective,

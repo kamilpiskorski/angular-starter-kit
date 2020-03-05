@@ -14,8 +14,8 @@ export class IfLoggedDirective {
   }
 
   @Input('appIfLogged')
-  public set visibility(condition: boolean) {
-    if (condition === !!this.authService.authTokenValue) {
+  public set visible(visible: boolean) {
+    if (visible === !!this.authService.authTokenValue) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainer.clear();

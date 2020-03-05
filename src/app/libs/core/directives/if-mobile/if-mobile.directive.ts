@@ -9,21 +9,21 @@ import { MatchMedia } from '../../models';
 export class IfMobileDirective extends MatchMedia {
 
   @Input('appIfMobile')
-  public visibility: boolean;
+  public visible: boolean;
 
-  constructor(private zone: NgZone,
-              @Inject(PLATFORM_ID) platformId: string,
-              private templateRef: TemplateRef<IfMobileDirective>,
-              private viewContainer: ViewContainerRef) {
+  constructor(@Inject(PLATFORM_ID) platformId: string,
+              zone: NgZone,
+              templateRef: TemplateRef<IfMobileDirective>,
+              viewContainer: ViewContainerRef) {
     super(platformId);
 
     this.mediaQuery = '(max-width: 1263px)';
     this.matchMediaListener = () => {
-      this.zone.run(() => {
-        if (this.visibility === this.matchMedia.matches) {
-          this.viewContainer.createEmbeddedView(this.templateRef);
+      zone.run(() => {
+        if (this.visible === this.matchMedia.matches) {
+          viewContainer.createEmbeddedView(templateRef);
         } else {
-          this.viewContainer.clear();
+          viewContainer.clear();
         }
       });
     };
