@@ -15,6 +15,7 @@ import { SelectComponent } from './components/select';
 // Directives
 import { FormControlDirective } from './directives/form-control';
 import { FormLabelDirective } from './directives/form-label';
+import { NumberOnlyDirective } from './directives/number-only';
 import { OptionDirective } from './directives/option';
 import { PasswordToggleDirective } from './directives/password-toggle';
 
@@ -34,6 +35,7 @@ import { PasswordToggleDirective } from './directives/password-toggle';
     SelectComponent,
     FormControlDirective,
     FormLabelDirective,
+    NumberOnlyDirective,
     OptionDirective,
     PasswordToggleDirective
   ],
@@ -47,6 +49,7 @@ import { PasswordToggleDirective } from './directives/password-toggle';
     SelectComponent,
     FormControlDirective,
     FormLabelDirective,
+    NumberOnlyDirective,
     OptionDirective,
     PasswordToggleDirective
   ]
