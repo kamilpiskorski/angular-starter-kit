@@ -1,11 +1,16 @@
+// External
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo(): Promise<unknown> {
+
+  constructor() {
+  }
+
+  public navigateTo() {
     return browser.get(browser.baseUrl) as Promise<unknown>;
   }
 
-  getTitleText(): Promise<string> {
+  public getTitleText() {
     return element(by.css('app-root .content span')).getText() as Promise<string>;
   }
 }

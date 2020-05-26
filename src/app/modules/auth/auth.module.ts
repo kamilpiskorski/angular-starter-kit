@@ -18,4 +18,7 @@ import { AuthRoutingModule } from './auth-routing.module';
   ]
 })
 export class AuthModule {
+
+  constructor() {
+  }
 }

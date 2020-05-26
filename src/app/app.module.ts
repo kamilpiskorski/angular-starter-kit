@@ -31,4 +31,7 @@ import { AppRoutingModule } from '@app/app-routing.module';
   ]
 })
 export class AppModule {
+
+  constructor() {
+  }
 }
